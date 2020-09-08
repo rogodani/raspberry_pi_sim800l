@@ -7,10 +7,11 @@ class Sim800L:
 
     def __init__(self, connection='/dev/ttyAMA0'):
         self.serial_connection = serial.Serial(connection, baudrate=9600, timeout=1)
-        self.intialization()
+        self.initialization()
 
-    def intialization(self):
+    def initialization(self):
         self.command('AT\n')
+        self.command('ATE0\n')
 
     def command(self, cmd):
         self.serial_connection.write(codecs.encode(cmd))
