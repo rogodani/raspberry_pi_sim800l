@@ -49,3 +49,5 @@ class Sim800L:
 
 if __name__ == '__main__':
     gsm_con = Sim800L()
+    while True:
+        gsm_con.check_incoming()
