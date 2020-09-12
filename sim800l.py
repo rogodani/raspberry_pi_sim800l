@@ -52,7 +52,7 @@ class Sim800L:
             elif params[0] == "RING" or params[0][0:5] == "+CLIP":
                 phone_number = params[0].strip().split(':')[1]
                 # print('CALL FROM {}'.format(phone_number))
-                # sleep(1)
+                sleep(1)
                 self.command('ATH\n')
                 sleep(1)
                 return phone_number
