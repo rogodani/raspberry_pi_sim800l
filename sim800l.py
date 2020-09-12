@@ -30,7 +30,9 @@ class Sim800L:
         sleep(1)
 
     def check_incoming(self):
+        self.serial_connection.reset_input_buffer()
         if self.serial_connection.in_waiting:
+            print('-><-' * 30)
             rcv = self.serial_connection.readline()
             print(rcv)
             # buf = convert_to_string(buf)
