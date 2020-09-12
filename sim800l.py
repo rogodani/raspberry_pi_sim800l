@@ -51,6 +51,7 @@ class Sim800L:
 
             elif params[0] == "RING" or params[0][0:5] == "+CLIP":
                 print('CALL FROM {}'.format(params[0].strip().split(':')[1]))
+                self.command('ATH\n')
 
 
 if __name__ == '__main__':
