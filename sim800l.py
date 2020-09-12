@@ -50,7 +50,7 @@ class Sim800L:
                 self.no_carrier_action()
 
             elif params[0] == "RING" or params[0][0:5] == "+CLIP":
-                print('CALL FROM {}', params[0].strip(' '))
+                print('CALL FROM {}'.format(params[0].strip().split(':')[1]))
 
 
 if __name__ == '__main__':
