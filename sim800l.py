@@ -14,7 +14,7 @@ class Sim800L:
         self.command('AT\n')
         self.command('ATE0\n')  # Set Command Echo Mode Off
         self.command('ATI\n')  # Display Product Identification Information
-        self.command('AT&V\n')  # Display Current Configuration
+        # self.command('AT&V\n')  # Display Current Configuration
         self.command('AT+GSN\n')  # Request TA Serial Number Identification(IMEI)
         # AT+CPBR=? Read Current Phonebook Entries
         self.command('AT+COPS?\n')  # Currently Selected Operator
@@ -36,19 +36,19 @@ class Sim800L:
             # buf = convert_to_string(buf)
             rcv = codecs.decode(rcv)
             print(rcv)
-            # params = buf.split(',')
-            #
-            # if params[0][0:5] == "+CMTI":
-            #     self._msgid = int(params[1])
-            #     if self.msg_action:
-            #         self.msg_action()
-            #
-            # elif params[0] == "NO CARRIER":
-            #     self.no_carrier_action()
-            #
-            # elif params[0] == "RING" or params[0][0:5] == "+CLIP":
-            #     # @todo handle
-            #     pass
+            params = rcv.split(',')
+            print('PARAMS: ', params)
+
+            if params[0][0:5] == "+CMTI":
+                self._msgid = int(params[1])
+                if self.msg_action:
+                    self.msg_action()
+
+            elif params[0] == "NO CARRIER":
+                self.no_carrier_action()
+
+            elif params[0] == "RING" or params[0][0:5] == "+CLIP":
+                print('CALL FROM {}', params[0])
 
 
 if __name__ == '__main__':
