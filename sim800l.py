@@ -60,6 +60,9 @@ class Sim800L:
 if __name__ == '__main__':
     gsm_con = Sim800L()
     while True:
-        print(gsm_con.check_incoming())
+        x = gsm_con.check_incoming()
+        if x:
+            print(x)
+            
         # if '0743144113' in gsm_con.check_incoming():
         #     print('$' * 20,'\nCALL FROM ME\n' '$' * 20)
