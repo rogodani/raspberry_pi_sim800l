@@ -27,7 +27,7 @@ class Sim800L:
         rcv = self.serial_connection.readline()
         # print(f'{cmd}:{codecs.decode(rcv)}')
         print('{0}:{1}'.format(cmd, codecs.decode(rcv)))
-        sleep(1)
+        sleep(2)
 
     def check_incoming(self):
         # self.serial_connection.reset_output_buffer()
@@ -52,9 +52,9 @@ class Sim800L:
             elif params[0] == "RING" or params[0][0:5] == "+CLIP":
                 phone_number = params[0].strip().split(':')[1]
                 print('CALL FROM {}'.format(phone_number))
-                sleep(1)
+                # sleep(1)
                 self.command('ATH\n')
-                sleep(1)
+                # sleep(1)
                 return phone_number
 
 
