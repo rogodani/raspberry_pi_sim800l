@@ -27,7 +27,7 @@ class Sim800L:
         rcv = self.serial_connection.readline()
         # print(f'{cmd}:{codecs.decode(rcv)}')
         print('{0}:{1}'.format(cmd, codecs.decode(rcv)))
-        sleep(2)
+        sleep(1)
 
     def check_incoming(self):
         # self.serial_connection.reset_output_buffer()
@@ -54,7 +54,7 @@ class Sim800L:
                 print('CALL FROM {}'.format(phone_number))
                 # sleep(1)
                 self.command('ATH\n')
-                # sleep(1)
+                sleep(1)
                 return phone_number
 
 
