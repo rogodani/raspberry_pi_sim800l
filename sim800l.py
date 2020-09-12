@@ -51,7 +51,7 @@ class Sim800L:
 
             elif params[0] == "RING" or params[0][0:5] == "+CLIP":
                 phone_number = params[0].strip().split(':')[1]
-                print('CALL FROM {}'.format(phone_number))
+                # print('CALL FROM {}'.format(phone_number))
                 # sleep(1)
                 self.command('ATH\n')
                 sleep(1)
@@ -64,4 +64,4 @@ if __name__ == '__main__':
         incoming = gsm_con.check_incoming()
 
         if incoming and ('0743144113' in incoming):
-            print('$' * 20, '\nCALL FROM ME\n', '$' * 20)
+            print('$' * 20, '\nCALL FROM {}\n'.format(incoming), '$' * 20)
