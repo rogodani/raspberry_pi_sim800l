@@ -50,12 +50,15 @@ class Sim800L:
                 self.no_carrier_action()
 
             elif params[0] == "RING" or params[0][0:5] == "+CLIP":
-                print('CALL FROM {}'.format(params[0].strip().split(':')[1]))
+                phone_number = params[0].strip().split(':')[1]
+                print('CALL FROM {}'.format(phone_number))
                 sleep(1)
                 self.command('ATH\n')
+                return phone_number
 
 
 if __name__ == '__main__':
     gsm_con = Sim800L()
     while True:
-        gsm_con.check_incoming()
+        if '0743144113' in gsm_con.check_incoming():
+            print('$' * 20,'\nCALL FROM ME\n' '$' * 20)
