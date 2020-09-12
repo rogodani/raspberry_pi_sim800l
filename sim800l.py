@@ -1,4 +1,5 @@
 import codecs
+from time import sleep
 
 import serial
 
@@ -26,6 +27,7 @@ class Sim800L:
         rcv = self.serial_connection.readline()
         # print(f'{cmd}:{codecs.decode(rcv)}')
         print('{0}:{1}'.format(cmd, codecs.decode(rcv)))
+        sleep(1)
 
     def check_incoming(self):
         if self.serial_connection.in_waiting:
