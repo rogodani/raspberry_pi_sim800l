@@ -54,6 +54,7 @@ class Sim800L:
                 print('CALL FROM {}'.format(phone_number))
                 sleep(1)
                 self.command('ATH\n')
+                sleep(1)
                 return phone_number
 
 
