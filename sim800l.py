@@ -63,4 +63,4 @@ if __name__ == '__main__':
         incoming = gsm_con.check_incoming()
 
         if incoming and ('0743144113' in incoming):
-            print('$' * 20,'\nCALL FROM ME\n' '$' * 20)
+            print('$' * 20, '\nCALL FROM ME\n', '$' * 20)
