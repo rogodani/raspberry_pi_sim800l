@@ -24,14 +24,16 @@ class Sim800L:
     def command(self, cmd):
         self.serial_connection.write(codecs.encode(cmd))
         rcv = self.serial_connection.readline()
-        print(f'{cmd}:{codecs.decode(rcv)}')
+        # print(f'{cmd}:{codecs.decode(rcv)}')
+        print('{0}:{1}'.format(cmd, codecs.decode(rcv)))
 
     def check_incoming(self):
         if self.serial_connection.in_waiting:
             rcv = self.serial_connection.readline()
-            print(buf)
+            print(rcv)
             # buf = convert_to_string(buf)
             rcv = codecs.decode(rcv)
+            print(rcv)
             # params = buf.split(',')
             #
             # if params[0][0:5] == "+CMTI":
